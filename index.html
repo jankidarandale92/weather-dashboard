@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast Final Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <header>
+            <div class="header-left">
+                <h1 id="currentDate">Monday, 12 Jan</h1>
+                <p id="currentYear">2026</p>
+            </div>
+            <div class="search-bar">
+                <i class="fa-solid fa-location-dot"></i>
+                <input type="text" id="cityInput" placeholder="Search city..." value="Pune">
+                <button onclick="fetchWeather()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </header>
+
+        <div class="grid-layout">
+            
+            <div class="column left-col">
+                <div class="card weather-hero" id="heroCard">
+                    <div class="overlay"></div>
+                    <div class="hero-content">
+                        <div class="hero-header">
+                            <h2 id="cityName">--</h2>
+                        </div>
+                        <div class="hero-temp">
+                            <img id="mainIcon" src="" alt="">
+                            <div>
+                                <h1 id="currentTemp">--°</h1>
+                                <p id="weatherDesc">--</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card forecast-card">
+                    <h3>5-Day Forecast</h3>
+                    <div class="forecast-row" id="forecastGrid"></div>
+                </div>
+
+                <div class="stats-row">
+                    <div class="card stat-card">
+                        <div class="card-header">
+                            <span>UV Index</span>
+                            <i class="fa-solid fa-sun icon-yellow"></i>
+                        </div>
+                        <h4>5 <span class="badge yellow">Moderate</span></h4>
+                        <div class="progress-bar"><div class="fill uv-fill" style="width: 50%"></div></div>
+                    </div>
+                    
+                    <div class="card stat-card">
+                        <div class="card-header">
+                            <span>Visibility</span>
+                            <i class="fa-solid fa-eye icon-blue"></i>
+                        </div>
+                        <h4 id="visibility">-- km</h4>
+                        <p class="sub-text" id="visText">--</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column mid-col">
+                <div class="card detail-card">
+                    <h3>Wind Status</h3>
+                    <div class="compass-wrapper">
+                        <div class="compass">
+                            <span class="dir N">N</span><span class="dir E">E</span>
+                            <span class="dir S">S</span><span class="dir W">W</span>
+                            <div class="arrow" id="windArrow"><i class="fa-solid fa-location-arrow"></i></div>
+                        </div>
+                        <div class="wind-value">
+                            <h2 id="windSpeed">--</h2>
+                            <p>km/h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card detail-card humidity-card">
+                    <h3>Humidity</h3>
+                    <h2 id="humidityVal">--%</h2>
+                    <div class="liquid-box">
+                        <div class="liquid"></div>
+                    </div>
+                    <p class="sub-text" id="dewPoint">Dew point is --°</p>
+                </div>
+
+                <div class="card detail-card">
+                    <h3>Pressure</h3>
+                    <div class="gauge-wrapper">
+                        <div class="gauge-arc"></div>
+                        <h2 id="pressureVal">-- hPa</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column right-col">
+                <div class="card moon-card">
+                    <div class="moon-info">
+                        <h3>Moon Phase</h3>
+                        <p>Illumination <span>87%</span></p>
+                    </div>
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                </div>
+                
+                <div class="card stat-card">
+                     <div class="card-header">
+                        <span>Air Quality</span>
+                        <i class="fa-solid fa-wind icon-green"></i>
+                    </div>
+                    <h4><span id="aqiValue">--</span> <span class="badge" id="aqiBadge">--</span></h4>
+                    <div class="progress-bar">
+                        <div class="fill" id="aqiBar" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="card map-card">
+                    <iframe id="mapFrame" src=""></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
